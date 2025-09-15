@@ -1,0 +1,270 @@
+/* styles.css — кастомные стили проекта InterStudy */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root{
+    --brand:#0F172A;      /* основной тёмный (slate-900) */
+    --brand-2:#1D4ED8;    /* синий акцент (blue-700) */
+    --muted:#64748B;      /* серый текст */
+    --soft:#F1F5F9;       /* светлый фон */
+    --header-bg:#7eaecd;  /* цвет хедера */
+    --accent:#e38054;     /* фирменный оранжевый */
+    --block-bg:#7ca66e;   /* цвет для блоков */
+}
+
+body{
+    color:var(--brand);
+    font-family: 'Montserrat', sans-serif;
+}
+.container-narrow {
+    max-width: 1080px; /* можно поиграть: 960px, 1140px */
+    margin: 0 auto;
+}
+
+.section-card {
+    background: #fff;
+    border-radius: 1.25rem; /* как у rounded-2xl */
+    box-shadow: 0 8px 20px rgba(2, 6, 23, 0.1); /* мягкая тень снизу */
+    padding: 3rem 2rem; /* внутренние отступы */
+}
+
+
+/* HEADER */
+nav.navbar {
+    background-color: #7eaecd;  /* тут подставь свой цвет */
+}
+
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* жирный шрифт для бренда */
+    font-size: 1.5rem; /* можно менять под размер логотипа */
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #fff !important;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+.navbar .nav-link:hover {
+    background-color: #fff;
+    color: #7eaecd !important;
+
+}
+
+/* HERO */
+.hero{
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+.hero h1{
+    font-weight: 700;              /* помягче */
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    font-size: clamp(28px, 4.2vw, 44px); /* меньше и адаптивно */
+    margin-bottom: .75rem;
+}
+.hero .lead{
+    color: var(--muted);
+    font-weight: 500;
+    line-height: 1.5;
+    font-size: clamp(14px, 1.6vw, 18px);
+    max-width: 52ch;               /* чтобы не растекался */
+}
+
+
+/* BUTTONS */
+.btn-brand{
+    background:var(--brand-2);
+    color:#fff;
+    font-weight:600;
+}
+.btn-brand:hover{
+    background:#1E40AF;
+    color:#fff;
+}
+
+/* SECTIONS */
+.section{padding:72px 0}
+.badge-soft{background:#E0E7FF; color:#1E40AF}
+
+/* FEATURES */
+.feature-icon{
+    width:52px; height:52px; border-radius:14px; display:grid; place-items:center;
+    background:#EEF2FF; color:#4338CA;
+}
+
+/* Choice-board layout */
+.guide-board .guide-card{
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    background:#fff;
+    box-shadow:0 8px 22px rgba(2,6,23,.10);
+    transition: transform .25s ease, box-shadow .25s ease;
+    display:flex; flex-direction:column; gap:.35rem;
+}
+.guide-board .guide-card:hover{
+    transform: translateY(-6px);
+    box-shadow:0 18px 38px rgba(2,6,23,.18);
+}
+.guide-title{ font-weight:700; color:#0F172A; }
+.guide-note{ font-size:.9rem; color:#475569; opacity:.9 }
+
+/* размеры карточек */
+.card-sq{ aspect-ratio:1/1; }            /* квадрат */
+.card-vert{ min-height: 220px; }         /* вертикальная */
+.card-vert.sm{ min-height: 180px; }
+.card-horz{ min-height: 220px; }         /* горизонтальная широкая */
+
+/* цветовые темы под палитру */
+.theme-blue{  background:#E8F3FA; }
+.theme-mint{  background:#E6F2E3; }
+.theme-coral{ background:#FBE3D6; }
+.theme-cream{ background:#F7F4EA; }
+
+/* иконки */
+.guide-icon{ font-size:1.6rem; opacity:.9; }
+
+/* сетка: 1-я и 2-я колонки = левая половина, 3-я = правая */
+@media (min-width: 992px){
+    .col-left-25{ width:25%; }
+    .col-right-50{ width:50%; }
+}
+
+/* PROCESS */
+.process-step{position:relative; padding-left:2.75rem}
+.process-step .step-number{
+    position:absolute; left:0; top:0; width:2rem; height:2rem; border-radius:50%;
+    background:#E0E7FF; color:#1E3A8A; display:grid; place-items:center; font-weight:700
+}
+/* Для разных размеров */
+.p-4 {padding:1.5rem !important;}
+.p-5 {padding:2rem !important;}
+.p-6 {padding:2.5rem !important;}
+
+/* ANOMATIO */
+.card-hover {
+    transition: all 0.3s ease;
+}
+.card-hover:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+/* STEPS — мини-стили */
+.timeline { margin: 0; }
+.step-card{
+    display:flex; gap:14px; align-items:flex-start;
+    background:#fff; border-radius:16px;
+    padding:16px 18px; margin-bottom:12px;
+    box-shadow:0 4px 16px rgba(2,6,23,.06);
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+.step-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 28px rgba(2,6,23,.12);
+}
+.step-number{
+    flex:0 0 auto; width:36px; height:36px; border-radius:50%;
+    background:#0f172a; color:#fff; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+}
+.step-body p{ margin:0; }
+
+/* лёгкая анимация появления, если вдруг её нет */
+.fade-in{ animation:fadeIn .45s ease both; }
+@keyframes fadeIn{ from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none} }
+
+
+/* FAQ */
+.container-narrow { max-width: 1080px; margin: 0 auto; }
+
+.faq .accordion-button{font-weight:600}
+.faq .accordion-button:not(.collapsed){background:#EEF2FF; color:#1E3A8A}
+
+/* UTILITIES */
+.shadow-soft{box-shadow:0 10px 30px rgba(2,6,23,.08)}
+.rounded-2xl{border-radius:1.25rem}
+.card-hover{transition: all .3s ease;}
+.card-hover:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 22px 50px rgba(2,6,23,.16)}
+
+/* Fade-in animation */
+.fade-in {opacity:0; transform: translateY(20px); transition: all .6s ease;}
+.fade-in.visible {opacity:1; transform: translateY(0);}
+
+/* CONTACT */
+.form-check-input {
+    accent-color: var(--header-bg); /* цвет галочки = цвет хедера */
+}
+
+.form-check-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin-left: 0.25rem;
+}
+/* FINLAND */
+.hero-finland{
+    position:relative;
+    color:#fff;
+    background:
+            linear-gradient(180deg, rgba(126,174,205,.75), rgba(126,174,205,.55)),
+            url('assets/finland-hero.jpg') center/cover no-repeat;
+}
+.hero-finland .badge-soft{
+    background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.25);
+}
+.pill{
+    display:inline-block; padding:.45rem .85rem; border-radius:999px;
+    background:rgba(126,174,205,.18); color:#0F172A; font-weight:600; font-size:.9rem;
+    border:1px solid rgba(126,174,205,.3);
+}
+.feature-card{
+    background:#fff; border:0; border-radius:1.25rem; padding:1.25rem 1.25rem;
+    box-shadow:0 10px 30px rgba(2,6,23,.08); transition:transform .2s ease, box-shadow .2s ease;
+    height:100%;
+}
+.feature-card:hover{ transform:translateY(-2px); box-shadow:0 16px 40px rgba(2,6,23,.12); }
+.icon-circle{
+    width:52px; height:52px; border-radius:50%; display:grid; place-items:center;
+    background:#EEF6FF; color:#1E40AF; font-size:1.2rem;
+}
+.list-check li{ position:relative; padding-left:1.6rem; margin-bottom:.5rem; }
+.list-check li::before{
+    content:"✓"; position:absolute; left:0; top:0; color:#7ca66e; font-weight:800;
+}
+.carousel .carousel-control-prev-icon, .carousel .carousel-control-next-icon{ filter:invert(1); }
+
+/* FOOTER */
+.footer {
+    background: var(--brand); /* тот же цвет, что у header */
+    color: #e2e8f0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer .footer-link {
+    color: #cbd5e1; /* светло-серый */
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer .footer-link:hover {
+    color: #fff; /* при наведении чисто белый */
+}
+
+
+/* PARTNER LOGOS */
+.partner-logos img{filter:grayscale(1); opacity:.8; transition:.2s}
+.partner-logos img:hover{filter:none; opacity:1}
+
+/* BACK TO TOP */
+.back-to-top{position:fixed; right:16px; bottom:16px; display:none; z-index:1080}
+
+/* CUSTOM BACKGROUNDS */
+.bg-accent{background-color:var(--accent) !important; color:#fff;}
+.bg-soft{background-color:var(--soft)}
+.bg-block{background-color:var(--block-bg) !important; color:#fff;}
+
